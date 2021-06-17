@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
 import {Container, Row, Col, Card, Button, ButtonGroup} from 'react-bootstrap'
+import { clearCart } from '../redux/Shopping/shopping-actions'
 
-function Checkout({cart}) {
+function Checkout(props) {
+    const {cart} = props
     const [totalPrice, setTotalPrice]= useState(0)
     const [totalItems, setTotalItems]= useState(0)
     useEffect(()=>{
@@ -30,7 +32,7 @@ function Checkout({cart}) {
             Total Price: {totalPrice} <br/>
             </div>
             <ButtonGroup style={{width:'100%'}}>
-            <Button variant='danger'>
+            <Button variant='danger' onClick={props.clearCart}>
             Clear Cart
             </Button>
             <Button variant='success'>
@@ -51,4 +53,10 @@ const mapStateToProps=(state)=>{
     }
 }
 
-export default connect(mapStateToProps, null)(Checkout)
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        clearCart: ()=>dispatch(clearCart())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout)

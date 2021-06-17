@@ -24,7 +24,7 @@ function Navbar({cart}) {
                 </Col>
                 <Col className='d-flex justify-content-end mr-3'>
                 <Link to='/cart'>
-                    <Button variant='outline-light'  className='font-weight-bold'>
+                    <Button variant='outline-primary'  className='font-weight-bold text-light'>
                         <i className="fas fa-shopping-cart"></i>
                         <span className='m-2'>My Cart </span>
                         {

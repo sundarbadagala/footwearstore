@@ -32,6 +32,11 @@ const shopReducer=(state=inititalState, action)=>{
                 ...state,
                 currentItems:action.payload
             }
+        case actionTypes.CLEAR_CART:
+            return{
+                ...state,
+                cart: []
+            }
         default:
             return state
     }

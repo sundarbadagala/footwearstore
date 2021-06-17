@@ -34,3 +34,9 @@ export const loadCurrentItem=(item)=>{
         payload:item
     }
 }
+
+export const clearCart=()=>{
+    return{
+        type: actionTypes.CLEAR_CART
+    }
+}
