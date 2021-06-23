@@ -1,26 +1,28 @@
 import React from 'react'
-import ProductCard from './ProductsCard'
 import {connect} from 'react-redux'
+import CartItems from './CartItems'
 
-function Products(props) {
+function Cart(props) {
+    console.log(props.cart)
     return (
-        <div className='d-flex flex-wrap'>
+        <div>
+        
             {
-                props.products.map(item => 
-                    <ProductCard 
+                props.cart.map(item => 
+                    <CartItems 
                         key={item.id} 
                         product={item} 
                     />
                 )
             }
+        
         </div>
     )
 }
-
 const mapStateToProps=(state)=>{
     return{
-        products: state.shop.products,
+        cart: state.shop.cart
     }
 }
 
-export default connect(mapStateToProps,null)(Products)
+export default connect(mapStateToProps, null)(Cart)

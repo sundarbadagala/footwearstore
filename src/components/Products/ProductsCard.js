@@ -3,6 +3,7 @@ import {Card, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import { addToCart } from '../redux/Shopping/shopping-actions'
 import {Link} from 'react-router-dom'
+import {Currency} from '../currencyFormat'
 
 function ProductCard(props) {
     const {product} = props
@@ -11,15 +12,18 @@ function ProductCard(props) {
             <Card className='m-2' style={{width:'200px'}}>
                 <Link to={'/product/'+product.id}><Card.Img src={product.img} alt=''/></Link>
                 <Card.Header className='p-1'>
-                    <div className='p-1'>{product.company} {product.title}</div>    
+                    <div className='p-1'>
+                        <div className='font-weight-bold'>{product.company}</div>
+                        <div className=''  style={{height:'50px'}}>{product.title}</div>
+                    </div>    
                     <div className='d-flex justify-content-around align-items-center font-weight-bold'>
-                    {product.price}
-                    <Button 
-                        className='px-4'
-                        onClick={()=>props.addToCart(product.id)}
+                        {Currency(product.price)}
+                        <Button 
+                            className='px-4'
+                            onClick={()=>props.addToCart(product.id)}
                         >
                         <i className="fas fa-cart-plus"></i>
-                    </Button>
+                        </Button>
                     </div>
                     
                 </Card.Header>

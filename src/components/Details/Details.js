@@ -15,19 +15,21 @@ function Details(props) {
         <Container fluid className='border border-primary bg-primary'>
         <Alert variant='primary' className='' style={{width:'100%'}}>
         <Row>
-            <Col md={4}><img src={details.img} alt='' style={{width:'300px'}}/></Col>
+            <Col md={4}>
+                <img src={details.img} alt='' style={{width:'300px'}}/>
+            </Col>
             <Col md={8}>
                 <div className='font-weight-bold'>
-                <div>Name : {details.title}</div>
-                <div>Name : {details.price}</div><br/>
+                    <div>Name : {details.title}</div>
+                    <div>Name : {details.price}</div><br/>
                 </div>
                 <div>{details.info}</div>
                 <div><br/>
                 <ButtonGroup>
-                <Link to='/'>
-                <Button variant='outline-primary'>Go To Home</Button>
-                </Link>
-                <Button variant='outline-primary' onClick={()=>props.addToCart(id)}>Add To Cart</Button>
+                    <Link to='/'>
+                        <Button variant='outline-primary'>Go To Home</Button>
+                    </Link>
+                    <Button variant='outline-primary' onClick={()=>props.addToCart(details.id)}>Add To Cart</Button>
                 </ButtonGroup>
                 </div>
             </Col>

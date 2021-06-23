@@ -1,36 +1,22 @@
 import React from 'react'
+import CartFull from './CartFull'
+import CartEmpty from './CartEmpty'
 import {connect} from 'react-redux'
-import CartItems from './CartItems'
-import {Container, Row, Col} from 'react-bootstrap'
-import Checkout from '../Checkout/Checkout'
 
-function Cart(props) {
-    console.log(props.cart)
+
+function Cart(props) {    
     return (
-        <Container fluid>
-        <Row>
-        <Col md={6}>
+        <React.Fragment>
             {
-                props.cart.map(item => 
-                    <CartItems 
-                        key={item.id} 
-                        product={item} 
-                    />
-                )
+                props.cart.length ? <CartFull/> : <CartEmpty/>
             }
-        </Col>
-        <Col md={6}>
-            {
-                props.cart.length > 0 ? <Checkout/> : null
-            }
-        </Col>
-        </Row>
-        </Container>
+        </React.Fragment>
     )
 }
+
 const mapStateToProps=(state)=>{
     return{
-        cart: state.shop.cart
+        cart : state.shop.cart
     }
 }
 

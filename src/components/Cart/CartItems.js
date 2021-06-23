@@ -3,6 +3,7 @@ import {Button} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import{removeFromCart, adjustQty} from '../redux/Shopping/shopping-actions'
 import {Link} from 'react-router-dom'
+import {Currency} from '../currencyFormat'
 
 function CartCard(props) {
     const {product} = props
@@ -16,7 +17,7 @@ function CartCard(props) {
         <div className="media m-1">
             <div className="media-left">
                 <Link to={'/product/'+product.id}>
-                <img src={product.img} className="media-object" style={{width:'150px'}} alt='' />
+                <img src={product.img} className="media-object" style={{height:'150px'}} alt='' />
                 </Link>
             </div>
             <div className="media-body ml-2">
@@ -36,11 +37,11 @@ function CartCard(props) {
                 />
                 <i className='fas fa-times mx-1' />
                 <span className='font-weight-bold'>
-                    {product.price}
+                    {Currency(product.price)}
                 </span>
                 <i className='fas fa-equals mx-1'/>
                 <span className='font-weight-bold'>
-                    {product.qty * product.price}
+                    {Currency(product.qty * product.price)}
                 </span>
                 <Button 
                     className=' ml-2' 

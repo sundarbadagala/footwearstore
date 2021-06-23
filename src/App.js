@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar'
 import Products from './components/Products/Products'
 import Cart from './components/Cart/Cart'
 import Details from './components/Details/Details';
+import ConfirmationForm  from './components/Checkout/ConfirmationForm';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path='/'><Products/></Route>
           <Route path='/cart'><Cart/></Route>
           <Route path='/product/:id'><Details/></Route>
+          <Router path='/confirm'><ConfirmationForm/></Router>
         </Switch>
       </Router>
     </Provider>
